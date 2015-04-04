@@ -16,7 +16,6 @@
 _container_name ${current_dir}
 
 images="docker.xlands-inc.com/desktop/kuaipan"
-#images="kuaipan4uk"
 #default_port="172.17.42.1:3306:3306"
 
 action="$1"    # start or stop ...
