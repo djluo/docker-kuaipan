@@ -30,4 +30,11 @@ $( = $) = $gid; die "switch gid error\n" if $!;
 $< = $> = $uid; die "switch uid error\n" if $!;
 
 #$SIG{CHLD} = 'IGNORE';
+$SIG{TERM} = sub {
+  my @proc = `ps -efw|grep kuaipan`;
+  my $pid  = (split/\s+/,$proc[1])[1];
+  system("kill", "$pid");
+  print "kill $pid\n";
+};
+
 system(@ARGV);
